@@ -1,0 +1,27 @@
+.carousel-item {
+	width: 100%; /*slider width*/
+	max-height: 450px; /*slider height*/
+}
+
+.carousel-item img {
+	width: 100%; /*img width*/
+}
+
+section {
+	background-color: #022a6b;
+	color: white;
+	padding: 1px;
+	font-style: oblique;
+	font-family: initial;
+}
+
+section h2,p {
+	padding-left: 20px;
+}
+
+
+#imageSection1{
+        background-size: cover;
+        background:url("../img/fishes2.png");
+        height: 450px;
+}
