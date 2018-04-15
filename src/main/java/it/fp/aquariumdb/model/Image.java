@@ -24,6 +24,8 @@ public class Image {
     private String tableName;
     
     private Long pkeyValue;
+    
+    private Boolean isMainImage = false;
 
 	public Image() {
 		super();
@@ -68,6 +70,14 @@ public class Image {
 
 	public void setPkeyValue(Long pkeyValue) {
 		this.pkeyValue = pkeyValue;
+	}
+
+	public Boolean isMainImage() {
+		return isMainImage;
+	}
+
+	public void setMainImage(Boolean isMainImage) {
+		this.isMainImage = isMainImage;
 	}
     
     

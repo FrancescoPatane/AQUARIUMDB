@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>ACQAURIUMDB</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<body>
+
+	<div th:replace="fragments/navbar :: navbar">...</div>
+
+	<br>
+
+	<br>
+
+	<th:block th:each="fish : ${fishes}">
+		<!-- 	<td th:text="${fish.name}"></td> -->
+		<!--     <td th:text="${fish.family.name}"></td> -->
+		<div class="media">
+			<img class="mr-3" src="..." alt="Generic placeholder image">
+			<div class="media-body">
+				<h5 class="mt-0" th:utext="${fish.name}"></h5>
+				<p th:utext="${fish.family.name}"></p>
+			</div>
+		</div>
+	</th:block>
+
+</body>
+</html>

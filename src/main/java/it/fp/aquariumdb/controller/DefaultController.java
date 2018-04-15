@@ -30,9 +30,9 @@ public class DefaultController {
     
     @RequestMapping(value = { "/fishes" }, method = RequestMethod.GET)
     public String fishes(Model model) {
-    	List<Fish> f = fishRepo.findAll();
-    	System.out.println(f);
-        return "home";
+    	List<Fish> fishes = fishRepo.findAll();
+    	model.addAttribute("fishes", fishes);
+        return "search";
     }
     
     @RequestMapping(value = "/login", method = RequestMethod.GET)
