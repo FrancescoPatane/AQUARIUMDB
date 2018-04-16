@@ -12,6 +12,9 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>
 <body>
 
 	<div th:replace="fragments/navbar :: navbar">...</div>
@@ -19,18 +22,24 @@
 	<br>
 
 	<br>
-
-	<th:block th:each="fish : ${fishes}">
-		<!-- 	<td th:text="${fish.name}"></td> -->
-		<!--     <td th:text="${fish.family.name}"></td> -->
-		<div class="media">
-			<img class="mr-3" src="..." alt="Generic placeholder image">
-			<div class="media-body">
-				<h5 class="mt-0" th:utext="${fish.name}"></h5>
-				<p th:utext="${fish.family.name}"></p>
+	<div id="mediaList">
+		<th:block th:each="fish : ${fishes}">
+		
+			<!-- 	<td th:text="${fish.name}"></td> -->
+			<!--     <td th:text="${fish.family.name}"></td> -->
+			<div class="media">
+			<input type="text" th:value="${fish.id}" hidden="true"/>
+				<img class="mr-3" src="..." alt="Generic placeholder image">
+				<div class="media-body">
+					<h5 class="mt-0" th:utext="${fish.name}"></h5>
+					<p th:utext="${fish.family.name}"></p>
+				</div>
 			</div>
-		</div>
-	</th:block>
+		</th:block>
+	</div>
+
+	<script type="text/javascript" src="js/search.js"></script>
+
 
 </body>
 </html>
