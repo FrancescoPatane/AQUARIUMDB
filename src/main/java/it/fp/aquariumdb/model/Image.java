@@ -17,9 +17,11 @@ public class Image {
     @Column(nullable=false)
     private String name;
  
-    @Lob
-    @Column(nullable=false, columnDefinition="mediumblob")
-    private byte[] image;
+//    @Lob
+//    @Column(nullable=false, columnDefinition="mediumblob")
+//    private byte[] image;
+    
+    private String imagePath;
     
     private String tableName;
     
@@ -48,12 +50,12 @@ public class Image {
 		this.name = name;
 	}
 
-	public byte[] getImage() {
-		return image;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setImage(byte[] image) {
-		this.image = image;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public String getTableName() {
