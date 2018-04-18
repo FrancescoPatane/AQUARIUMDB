@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import it.fp.aquariumdb.model.Family;
 import it.fp.aquariumdb.model.Fish;
 import it.fp.aquariumdb.model.Image;
+import it.fp.aquariumdb.repository.FamilyRepository;
 import it.fp.aquariumdb.repository.FishRepository;
 import it.fp.aquariumdb.repository.ImageRepository;
 import it.fp.aquariumdb.repository.UserRepository;
@@ -28,21 +30,15 @@ public class DefaultController {
 
 	@Autowired
 	private FishRepository fishRepo;
+	
+	@Autowired
+	private FamilyRepository familyRepo;
 
 	@Autowired
 	ImageRepository imageRepo;
 
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String index(Model model) {
-		File file = new File("new.txt");
-		try {
-			file.createNewFile();
-			System.out.println(file.getAbsolutePath());
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "home";
 	}
 
@@ -50,6 +46,8 @@ public class DefaultController {
 	public String fishes(Model model) {
 		List<Fish> fishes = fishRepo.findAll();
 		model.addAttribute("fishes", fishes);
+		List<Family> families = familyRepo.findAll();
+		model.addAttribute("families", families);
 		return "search";
 	}
 
@@ -67,7 +65,6 @@ public class DefaultController {
 	@ResponseBody
 	@GetMapping("/async/getimage")
 	public String getImage(@RequestParam("fishId") String fishId) {
-		System.out.println("*******");
 		Long id = Long.valueOf(fishId);
 		Image img = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", id, Boolean.TRUE);
 		String path;

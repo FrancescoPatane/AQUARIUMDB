@@ -1,0 +1,38 @@
+.media-body {
+	font-style: italic;
+	font-family: serif;
+	color: white;
+	font-size: 30px;
+	margin-left: 15%;
+	padding-top: 15px;
+}
+
+.media-body h1 {
+	font-weight: bold;
+}
+
+#filter-bar {
+	background-color: #022a4e;
+	height: 100%;
+}
+
+#fields-container {
+	padding: 10%;
+}
+
+#fields-container input{
+	margin-bottom: 5%;
+}
+
+#fields-container label {
+	display: block;
+	color: white;
+	font-style: italic;
+	font-family: serif;
+	font-size: 25px;
+}
+
+#list-div {
+	margin-top: 5%;
+}
+
