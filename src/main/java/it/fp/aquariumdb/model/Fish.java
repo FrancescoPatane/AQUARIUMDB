@@ -21,13 +21,14 @@ public class Fish {
 	private String name;
 	@ManyToOne
 	private Family family;
-	@Column(length = 500)
+	@Column(length = 5000)
 	private String description;
 	@Column(nullable = false)
 	private Integer size;
 	private Integer difficulty;
 	private Integer minDimensions;
 	private Integer minVolume;
+	private String waterType;
 	@OneToMany
 	@JoinColumn(name = "fish_id")
 	private List<Comment> comments;
@@ -126,6 +127,16 @@ public class Fish {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+
+	public String getWaterType() {
+		return waterType;
+	}
+
+
+	public void setWaterType(String waterType) {
+		this.waterType = waterType;
 	}
 
 

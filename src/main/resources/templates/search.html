@@ -55,7 +55,7 @@
 						<input type="text" th:value="${fish.id}" hidden="true" /> <img
 							src="..." height="150" width="150" />
 						<div class="media-body">
-							<h1 class="mt-0" th:utext="${fish.name}"></h1>
+							<h1 class="mt-0"><a th:href="@{/fish-details(fishId=${fish.id})}" th:utext="${fish.name}"></a></h1>
 							<p th:utext="${fish.family.name}"></p>
 						</div>
 					</div>

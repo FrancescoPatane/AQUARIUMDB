@@ -3,6 +3,7 @@ package it.fp.aquariumdb.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class DefaultController {
 
 	@Autowired
 	private FishRepository fishRepo;
-	
+
 	@Autowired
 	private FamilyRepository familyRepo;
 
@@ -51,6 +52,16 @@ public class DefaultController {
 		return "search";
 	}
 
+	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
+	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
+		Long id = Long.valueOf(fishId);
+		String path = getMainImagePath(id);
+		Optional<Fish> fish = fishRepo.findById(id);
+		model.addAttribute("fish", fish.get());
+		model.addAttribute("mainPath", path);
+		return "fish-details";
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
 		if (error != null)
@@ -66,7 +77,12 @@ public class DefaultController {
 	@GetMapping("/async/getimage")
 	public String getImage(@RequestParam("fishId") String fishId) {
 		Long id = Long.valueOf(fishId);
-		Image img = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", id, Boolean.TRUE);
+		String path = getMainImagePath(id);
+		return path;
+	}
+
+	private String getMainImagePath (Long fishId) {
+		Image img = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", fishId, Boolean.TRUE);
 		String path;
 		if (img != null)
 			path = img.getImagePath();
