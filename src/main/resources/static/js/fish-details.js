@@ -25,9 +25,9 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
                 interval: 2000
         });
 
-
+/*
   $(document).ready(function() {
-/* show lightbox when clicking a thumbnail */
+// show lightbox when clicking a thumbnail 
     $('a.thumb').click(function(event){
       event.preventDefault();
       var content = $('.modal-body');
@@ -38,4 +38,11 @@ $('#carouselExample').on('slide.bs.carousel', function (e) {
         $(".modal-profile").modal({show:true});
     });
 
-  });
+  });*/
+  
+  
+ function displayImage(src){
+	    modal.style.display = "block";
+	    modalImg.src = src;
+	    captionText.innerHTML = src;
+ };
