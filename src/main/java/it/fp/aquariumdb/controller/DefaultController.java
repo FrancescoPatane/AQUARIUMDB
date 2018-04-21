@@ -56,9 +56,11 @@ public class DefaultController {
 	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
 		Long id = Long.valueOf(fishId);
 		String path = getMainImagePath(id);
+		List<Image> images = imageRepo.findByTableNameAndPkeyValue("fish", id);
 		Optional<Fish> fish = fishRepo.findById(id);
 		model.addAttribute("fish", fish.get());
 		model.addAttribute("mainPath", path);
+		model.addAttribute("images", images);
 		return "fish-details";
 	}
 

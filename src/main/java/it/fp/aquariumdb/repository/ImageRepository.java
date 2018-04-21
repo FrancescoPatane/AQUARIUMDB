@@ -1,5 +1,7 @@
 package it.fp.aquariumdb.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import it.fp.aquariumdb.model.Image;
@@ -9,4 +11,5 @@ public interface ImageRepository extends JpaRepository<Image, Long>{
 	
 	Image findByTableNameAndPkeyValueAndIsMainImage (String tableName, Long pkeyValue, Boolean isMainImage);
 
+	List<Image > findByTableNameAndPkeyValue (String tableName, Long pkeyValue);
 }

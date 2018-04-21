@@ -48,9 +48,6 @@
 
 			<div id="mediaList">
 				<th:block th:each="fish : ${fishes}">
-
-					<!-- 	<td th:text="${fish.name}"></td> -->
-					<!--     <td th:text="${fish.family.name}"></td> -->
 					<div th:id="'media-' + ${fish.id}" class="media">
 						<input type="text" th:value="${fish.id}" hidden="true" /> <img
 							src="..." height="150" width="150" />

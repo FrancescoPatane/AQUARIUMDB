@@ -2,3 +2,7 @@
     height: 45px;
     border-radius: 10px;
 }
+
+hr {
+	border-color: white !important;
+}
