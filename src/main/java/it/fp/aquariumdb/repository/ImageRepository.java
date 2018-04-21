@@ -9,7 +9,5 @@ import it.fp.aquariumdb.model.Image;
 public interface ImageRepository extends JpaRepository<Image, Long>{
 	//Image findByTableAndId (String table_name, long pkey_value);
 	
-	Image findByTableNameAndPkeyValueAndIsMainImage (String tableName, Long pkeyValue, Boolean isMainImage);
-
-	List<Image > findByTableNameAndPkeyValue (String tableName, Long pkeyValue);
+	List<Image > findByTableNameAndPkeyValueAndIsMainImage (String tableName, Long pkeyValue, Boolean isMainImage);
 }

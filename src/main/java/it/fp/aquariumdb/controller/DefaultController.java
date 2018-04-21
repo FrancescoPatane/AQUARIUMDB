@@ -52,17 +52,17 @@ public class DefaultController {
 		return "search";
 	}
 
-	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
-	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
-		Long id = Long.valueOf(fishId);
-		String path = getMainImagePath(id);
-		List<Image> images = imageRepo.findByTableNameAndPkeyValue("fish", id);
-		Optional<Fish> fish = fishRepo.findById(id);
-		model.addAttribute("fish", fish.get());
-		model.addAttribute("mainPath", path);
-		model.addAttribute("images", images);
-		return "fish-details";
-	}
+//	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
+//	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
+//		Long id = Long.valueOf(fishId);
+//		String path = getMainImagePath(id);
+//		List<Image> images = imageRepo.findByTableNameAndPkeyValue("fish", id);
+//		Optional<Fish> fish = fishRepo.findById(id);
+//		model.addAttribute("fish", fish.get());
+//		model.addAttribute("mainPath", path);
+//		model.addAttribute("images", images);
+//		return "fish-details";
+//	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
@@ -82,9 +82,21 @@ public class DefaultController {
 		String path = getMainImagePath(id);
 		return path;
 	}
+	
+	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
+	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
+		Long id = Long.valueOf(fishId);
+		String path = getMainImagePath(id);
+		List<Image> images = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", id, Boolean.FALSE);
+		Optional<Fish> fish = fishRepo.findById(id);
+		model.addAttribute("fish", fish.get());
+		model.addAttribute("mainPath", path);
+		model.addAttribute("images", images);
+		return "fish-details";
+	}
 
 	private String getMainImagePath (Long fishId) {
-		Image img = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", fishId, Boolean.TRUE);
+		Image img = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", fishId, Boolean.TRUE).get(0);
 		String path;
 		if (img != null)
 			path = img.getImagePath();
