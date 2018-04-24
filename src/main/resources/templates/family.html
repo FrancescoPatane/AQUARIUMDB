@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/family.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+</head>
+<body background="img/family-background.jpg">
+
+
+	<div th:replace="fragments/navbar :: navbar">...</div>
+	<br>
+	<br>
+
+	<div id="container">
+		<div class="row">
+			<div class="col">
+				<img src="img/families/poecilidi.jpg" class="rounded-circle">
+				<p>Poecilidae</p>
+			</div>
+			<div class="col">
+				<img src="img/families/caracidi.jpg" class="rounded-circle">
+				<p>Characidae</p>
+			</div>
+			<div class="col">
+				<img src="img/families/ciclidi.jpg" class="rounded-circle">
+				<p>Ciclidae</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img src="img/families/callittidi.jpg" class="rounded-circle">
+				<p>Callichthyidae</p>
+			</div>
+			<div class="col">
+				<img src="img/families/ciprinidi.jpg" class="rounded-circle">
+				<p>Cyprinidae</p>
+			</div>
+			<div class="col">
+				<img src="img/families/anabantidi.jpg" class="rounded-circle">
+				<p>Anabantidae</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col"></div>
+			<div class="col"></div>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

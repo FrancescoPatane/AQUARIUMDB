@@ -94,6 +94,12 @@ public class DefaultController {
 		model.addAttribute("images", images);
 		return "fish-details";
 	}
+	
+	@RequestMapping(value = { "/families" }, method = RequestMethod.GET)
+	public String showFamilies() {
+
+		return "family";
+	}
 
 	private String getMainImagePath (Long fishId) {
 		Image img = imageRepo.findByTableNameAndPkeyValueAndIsMainImage("fish", fishId, Boolean.TRUE).get(0);

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" th:href="@{/css/family.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/fish-details.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
 
 <link rel="stylesheet"
@@ -36,63 +36,64 @@
 				</div>
 			</div>
 		</div>
-		<br> <br>
-		<p id="description" th:utext="${fish.description}"></p>
-		<br>
-		<hr>
-		<br>
+	</div>
+	<br>
+	<br>
+	<p id="description" th:utext="${fish.description}"></p>
+	<br>
+	<hr>
+	<br>
 
 
 
-		<div class="container-fluid">
-			<div id="carouselExample" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner row w-100 mx-auto" role="listbox">
-					<div class="carousel-item col-md-3  active">
+	<div class="container-fluid">
+		<div id="carouselExample" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner row w-100 mx-auto" role="listbox">
+				<div class="carousel-item col-md-3  active">
+					<div class="panel panel-default">
+						<div class="panel-thumbnail">
+							<img class="img-fluid mx-auto d-block" th:src="${mainPath}"
+								th:onclick="'displayImage(\''+${mainPath}+'\');'">
+						</div>
+					</div>
+				</div>
+
+
+				<th:block th:each="img : ${images}">
+
+					<div class="carousel-item col-md-3">
 						<div class="panel panel-default">
 							<div class="panel-thumbnail">
-								<img class="img-fluid mx-auto d-block" th:src="${mainPath}"
-									th:onclick="'displayImage(\''+${mainPath}+'\');'">
+								<img class="img-fluid mx-auto d-block" th:src="${img.imagePath}"
+									th:onclick="'displayImage(\''+${img.imagePath}+'\');'">
 							</div>
 						</div>
 					</div>
 
-
-					<th:block th:each="img : ${images}">
-
-						<div class="carousel-item col-md-3">
-							<div class="panel panel-default">
-								<div class="panel-thumbnail">
-									<img class="img-fluid mx-auto d-block"
-										th:src="${img.imagePath}"
-										th:onclick="'displayImage(\''+${img.imagePath}+'\');'">
-								</div>
-							</div>
-						</div>
-
-					</th:block>
+				</th:block>
 
 
 
-				</div>
-				<a class="carousel-control-prev" href="#carouselExample"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-					class="sr-only">Previous</span>
-				</a> <a class="carousel-control-next text-faded" href="#carouselExample"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon" aria-hidden="true"></span> <span
-					class="sr-only">Next</span>
-				</a>
 			</div>
+			<a class="carousel-control-prev" href="#carouselExample"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next text-faded" href="#carouselExample"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
 		</div>
+	</div>
 
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
-			<span class="close">&times;</span> <img class="modal-content"
-				id="modalImg">
-			<div id="caption"></div>
-		</div>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<span class="close">&times;</span> <img class="modal-content"
+			id="modalImg">
+		<div id="caption"></div>
+	</div>
 
-		<script type="text/javascript" src="js/fish-details.js"></script>
+	<script type="text/javascript" src="js/fish-details.js"></script>
 </body>
 </html>
