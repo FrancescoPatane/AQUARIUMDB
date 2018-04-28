@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
 	$("#mediaList").children("div.media").each(function () {
-		var fishId = $(this).find('input').val();
-		console.log(fishId);
+		var fishId = $(this).find("#fishId").val();
 		getImageOfFish(fishId);
 	});
 
@@ -11,7 +10,6 @@ $(document).ready(function () {
 function getImageOfFish(fishId){
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
-	console.log("9999999");
 	$.ajax({
 		type: "GET",
 		beforeSend: function(request) {
@@ -20,21 +18,57 @@ function getImageOfFish(fishId){
 		contentType: "application/json",
 		url: "/async/getimage",
 		data: { fishId:fishId},
-		//data: fishId,
-		//dataType: 'json',
 		dataType: 'text',
 		cache: false,
 		timeout: 600000,
 		success: function (data) {
-			console.log("ààààààà");
-			console.log(data);
 			$("#media-"+fishId).find("img").attr("src",data);
 
 		},
 		error: function (e) {
 
-			console.log("errrr");
-
 		}
 	});
 }
+
+function filterList() {
+	var input = $("#fish-name").val().toUpperCase();
+	var family = $("#family-select").val();
+
+	$("#mediaList").children("div.media").each(function () {
+		var name = $(this).find(".media-body a").html().toUpperCase();
+		var familyId = $(this).find("#fishFamilyId").val();
+		//var familyId = $(this).find("#fishFamilyId").val();
+		if ((name.indexOf(input) > (-1) || input === "") && (family === familyId || family === ""))
+			$(this).show();
+		else
+			$(this).hide();
+	});
+}
+
+
+function filterByName() {
+	var input = $("#fish-name").val().toUpperCase();
+	$("#mediaList").children("div.media").each(function () {
+		var name = $(this).find(".media-body a").html().toUpperCase();
+		//var familyId = $(this).find("#fishFamilyId").val();
+		if (name.indexOf(input) > (-1) || input === "") 
+			$(this).show();
+		else
+			$(this).hide();
+	});
+}
+
+
+function filterByFamily() {
+	var family = $("#family-select").val();
+	$("#mediaList").children("div.media").each(function () {
+		var familyId = $(this).find("#fishFamilyId").val();
+		if (family === familyId || family === "")
+			$(this).show();
+		else
+			$(this).hide();
+	});
+
+}
+

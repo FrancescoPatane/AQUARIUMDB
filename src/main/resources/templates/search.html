@@ -28,12 +28,14 @@
 		<div class="col-3">
 			<div id="filter-bar">
 				<div id="fields-container">
+<!-- 				<button type="button" class="btn btn-info float-right">Filtra</button> -->
+				<img src="img/search.png" class="float-right"  height="35px" >
+				<br>
 					<label for="fish-name">Nome</label>
-					<input type="text" class="form-control" id="fish-name">
+					<input type="text" class="form-control" id="fish-name" onkeyup="filterList()">
 					<label for="family-select">Famiglia</label>
-					 <select class="custom-select" id="family-select">
+					 <select class="custom-select" id="family-select" onchange="filterList()">
 						<option selected></option>
-						
 						<th:block th:each="family : ${families}">
 						<option th:value="${family.id}" th:utext="${family.name}"></option>
 						</th:block>
@@ -49,15 +51,14 @@
 			<div id="mediaList">
 				<th:block th:each="fish : ${fishes}">
 					<div th:id="'media-' + ${fish.id}" class="media">
-						<input type="text" th:value="${fish.id}" hidden="true" /> <img
-							src="..." height="150" width="150" />
+						<input type="text" id="fishFamilyId" th:value="${fish.family.id}" hidden="true">
+						<input type="text" id="fishId" th:value="${fish.id}" hidden="true" />
+						<img src="..." height="150" width="150" />
 						<div class="media-body">
 							<h1 class="mt-0"><a th:href="@{/fish-details(fishId=${fish.id})}" th:utext="${fish.name}"></a></h1>
 							<p th:utext="${fish.family.name}"></p>
 						</div>
 					</div>
-					<br>
-					<br>
 				</th:block>
 			</div>
 		</div>

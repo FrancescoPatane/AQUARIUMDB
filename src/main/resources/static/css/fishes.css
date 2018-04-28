@@ -1,3 +1,15 @@
+html, body {
+	height: 100%;
+}
+
+.row {
+	height: 100%;
+}
+
+#mediaList .media {
+	margin-bottom: 35px;
+}
+
 .media-body {
 	font-style: italic;
 	font-family: serif;
@@ -13,14 +25,17 @@
 
 #filter-bar {
 	background-color: #022a4e;
-	height: 100%;
+	bottom: 0;
+	position: absolute;
+	top: 0;
+	width: 80%;
 }
 
 #fields-container {
 	padding: 10%;
 }
 
-#fields-container input{
+#fields-container input {
 	margin-bottom: 5%;
 }
 
@@ -35,4 +50,3 @@
 #list-div {
 	margin-top: 5%;
 }
-
