@@ -52,17 +52,17 @@ public class DefaultController {
 		return "search";
 	}
 
-//	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
-//	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
-//		Long id = Long.valueOf(fishId);
-//		String path = getMainImagePath(id);
-//		List<Image> images = imageRepo.findByTableNameAndPkeyValue("fish", id);
-//		Optional<Fish> fish = fishRepo.findById(id);
-//		model.addAttribute("fish", fish.get());
-//		model.addAttribute("mainPath", path);
-//		model.addAttribute("images", images);
-//		return "fish-details";
-//	}
+	//	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
+	//	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
+	//		Long id = Long.valueOf(fishId);
+	//		String path = getMainImagePath(id);
+	//		List<Image> images = imageRepo.findByTableNameAndPkeyValue("fish", id);
+	//		Optional<Fish> fish = fishRepo.findById(id);
+	//		model.addAttribute("fish", fish.get());
+	//		model.addAttribute("mainPath", path);
+	//		model.addAttribute("images", images);
+	//		return "fish-details";
+	//	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
@@ -82,7 +82,7 @@ public class DefaultController {
 		String path = getMainImagePath(id);
 		return path;
 	}
-	
+
 	@RequestMapping(value = { "/fish-details" }, method = RequestMethod.GET)
 	public String showFishDetails(@RequestParam("fishId") String fishId, Model model) {
 		Long id = Long.valueOf(fishId);
@@ -94,11 +94,23 @@ public class DefaultController {
 		model.addAttribute("images", images);
 		return "fish-details";
 	}
-	
+
 	@RequestMapping(value = { "/families" }, method = RequestMethod.GET)
 	public String showFamilies() {
 
-		return "family";
+		return "families";
+	}
+
+	@RequestMapping(value = { "/family" }, method = RequestMethod.GET)
+	public String showFamily(@RequestParam("familyId") String familyId, Model model) {
+		List<Image> images = imageRepo.findImagesForFamily(familyId);
+		model.addAttribute("images", images);
+		switch (familyId) {
+		case "1":  return "poecilidi";
+		case "2":  return "ciclidi";
+		}
+
+		return "families";
 	}
 
 	private String getMainImagePath (Long fishId) {

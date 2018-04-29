@@ -14,7 +14,7 @@ public class Family {
 	private Long id;
 	@Column(nullable = false)
 	private String name;
-	@Column(nullable = false, length = 5000)
+	@Column(length = 5000)
 	private String description;
 	
 	

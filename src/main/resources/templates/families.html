@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" th:href="@{/css/family.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/families.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
 
 <link rel="stylesheet"
@@ -25,7 +25,9 @@
 	<div id="container">
 		<div class="row">
 			<div class="col">
+				<a th:href="@{/family(familyId=${1})}"> 
 				<img src="img/families/poecilidi.jpg" class="rounded-circle">
+				</a>
 				<p>Poecilidae</p>
 			</div>
 			<div class="col">

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/family-details.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+</head>
+<body>
+
+	<div th:replace="fragments/navbar :: navbar">...</div>
+	<div class="container">
+		<div class="description">
+			<div class="headText">
+				<h1>FAMIGLIA POECILIDAE</h1>
+				<br> <br> <img
+					src="https://image.ibb.co/hKC39H/livebearer.jpg" />
+			</div>
+			<br> <br>
+			<p>Con il termine italianizzato "Poecilidi" si indica una
+				famiglia di pesci che gli acquariofili conoscono con dei nomi
+				comuni: Guppy, Molly, Portaspada, Platy, Endler e Gambusia.</p>
+			<p>La famiglia comprende quasi duecento specie, ma le più
+				comunemente reperibili sono le seguenti:</p>
+			<ul>
+				<li><strong>Guppy:</strong> <em>Poecilia reticulata</em>.</li>
+				<li><strong>Molly:</strong> <em>Poecilia sphenops</em>, <em>Poecilia
+						latipinna</em> e <em>Poecilia velifera</em>.</li>
+				<li><strong>Portaspada:</strong> <span dir="auto"><em>Xiphophorus
+							helleri</em>.</span></li>
+				<li><strong>Platy:</strong> <em>Xiphophorus maculatus</em>.</li>
+				<li><strong>Endler:</strong> <span class="st"><em>Poecilia
+							wingei</em>.</span></li>
+				<li><strong><em>Gambusia</em>:</strong> questo è già un nome
+					scientifico; può riferirsi a <em><span dir="auto">Gambusia
+							holbrooki</span></em> o <span dir="auto"><em>Gambusia affinis</em>.</span></li>
+			</ul>
+			<br>
+			<div class="headText">
+				<h2>Diffusione</h2>
+				<br> <img src="https://image.ibb.co/hkSjic/areapoecildi.jpg">
+				<br> <br>
+			</div>
+			<p>I Poecilidi sono una famiglia piuttosto numerosa; le varie
+				specie non vivono tutte nella stessa zona. Se avessimo bisogno di
+				indicare un'area d'origine, a grandi linee, diremmo certamente
+				l'America Centrale; più precisamente, il territorio che va dalla
+				Florida fino al nord del Venezuela e della Colombia. Le acque di
+				queste zone, con una certa naturale variabilità, sono piuttosto dure
+				e alcaline, mediamente simili a quelle dei nostri acquedotti
+				italiani. Di conseguenza, i Poecilidi si trovano piuttosto bene in
+				molte delle nostre acque di rete.</p>
+			<br>
+			<div class="headText">
+				<h2>Riproduzione</h2>
+				<br> <img src="https://image.ibb.co/hU3zic/guppyfries.jpg">
+				<br> <br>
+			</div>
+			<p>I Poecilidi sono ovovivipari, vale a dire che le uova si
+				sviluppano nel grembo della femmina ed i piccoli vengono partoriti
+				dopo la schiusa. I pesci di questa famiglia sono molto prolifici,
+				forse più di tutti gli altri pesci d'acquario. Anche se molti
+				avannotti vengono mangiati dagli adulti, genitori compresi, in una
+				vasca ricca di vegetazione è molto facile vederne crescere molti.</p>
+		</div>
+		<br>
+		<hr>
+		<br>
+		<div class="gallery">
+		
+		<th:block th:each="img : ${images}">
+		<img th:src="${img.imagePath}" width="300">
+		</th:block>
+		</div>
+	</div>
+
+</body>
+</html>
