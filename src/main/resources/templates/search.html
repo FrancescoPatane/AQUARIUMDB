@@ -52,9 +52,10 @@
 					<div th:id="'media-' + ${fish.id}" class="media">
 						<input type="text" id="fishFamilyId" th:value="${fish.family.id}" hidden="true">
 						<input type="text" id="fishId" th:value="${fish.id}" hidden="true" />
-						<img src="..." height="150" width="150" />
+						<a th:href="@{/fish-details(fishId=${fish.id})}"><img src="..." height="150" width="150" /></a>
 						<div class="media-body">
-							<h1 class="mt-0"><a th:href="@{/fish-details(fishId=${fish.id})}" th:utext="${fish.name}"></a></h1>
+							<h1 class="mt-0" th:utext="${fish.name}"></h1>
+							<span class="dot float-right" th:id="'difficultyDot'+${fish.difficulty}" data-toggle="tooltip"></span>
 							<p th:utext="${fish.family.name}"></p>
 						</div>
 					</div>

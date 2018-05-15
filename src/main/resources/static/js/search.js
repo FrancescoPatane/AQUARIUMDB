@@ -4,8 +4,19 @@ $(document).ready(function () {
 		var fishId = $(this).find("#fishId").val();
 		getImageOfFish(fishId);
 	});
+	
+	$('[data-toggle="tooltip"]').tooltip();
+	setDifficultyString();
 
 });
+
+function setDifficultyString (){
+	$("#difficultyDot1").attr("title","Molto facile");
+	$("#difficultyDot2").attr("title","Facile");
+	$("#difficultyDot3").attr("title","Medio");
+	$("#difficultyDot4").attr("title","Difficile");
+	$("#difficultyDot5").attr("title","Molto Difficile");
+}
 
 function getImageOfFish(fishId){
 	var token = $("meta[name='_csrf']").attr("content");

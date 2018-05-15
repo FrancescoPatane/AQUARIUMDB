@@ -10,3 +10,26 @@ hr {
 body {
 	color: white !important;
 }
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5%;
+}
+
+#difficultyDot1 {
+	background-color: darkgreen;
+}
+
+#difficultyDot2 {
+	background-color: #edd400;
+}
+
+#difficultyDot3 {
+	background-color: #f57900;
+}
+
+
