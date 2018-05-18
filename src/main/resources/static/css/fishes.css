@@ -2,6 +2,10 @@ html, body {
 	height: 100%;
 }
 
+body  {
+    background-attachment: fixed;
+}
+
 .row {
 	height: 100%;
 }
@@ -25,14 +29,14 @@ html, body {
 
 #filter-bar {
 	background-color: #022a4e;
-	bottom: 0;
-	position: absolute;
+	position: fixed;
 	top: 0;
-	width: 80%;
+	bottom: 0;
 }
 
 #fields-container {
 	padding: 10%;
+	margin-top: 55px;
 }
 
 #fields-container input {
@@ -48,5 +52,5 @@ html, body {
 }
 
 #list-div {
-	margin-top: 5%;
+	margin-top: 10%;
 }

@@ -47,7 +47,7 @@ function filterList() {
 	var family = $("#family-select").val();
 
 	$("#mediaList").children("div.media").each(function () {
-		var name = $(this).find(".media-body a").html().toUpperCase();
+		var name = $(this).find(".media-body h1").html().toUpperCase();
 		var familyId = $(this).find("#fishFamilyId").val();
 		//var familyId = $(this).find("#fishFamilyId").val();
 		if ((name.indexOf(input) > (-1) || input === "") && (family === familyId || family === ""))
